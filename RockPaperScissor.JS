@@ -1,25 +1,20 @@
-const userSelection = document.getElementById("userChoice");
-const computerSelection = document.getElementById("computerChoice");
-const Result = document.querySelector(".result");
-const rockImg = document.getElementById("Rock");
-const paperImg = document.getElementById("Paper");
-const scissorImg = document.getElementById("Scissor");
-const selectionButtons = document.querySelectorAll("data-select");
+const options= ["Rock", "Paper", "Scissor"]
+const computerChoice= Math.floor(Math.random()*3)
+const userChoice= Math.floor(Math.random()*3)
 
-selectionButtons.forEach((selectionButton) => {
-  selectionButton.addEventListener("click", (e) => {
-    selectionName = selectionButton.dataset.selection;
-    makeSelection(selectionName);
-  });
-});
-
-function makeSelection(selection) {
-  console.log(selection);
+function game(userChoice, computerChoice) {
+  if(userChoice == computerChoice) {
+    console.log("it's a draw")
+  } else if (userChoice == "Rock" && computerChoice == "Scissor") { 
+    console.log("You win")
+  } else if (userChoice == "Paper" && computerChoice == "Rock"){
+    console.log("You win")
+  } else if(userChoice == "Scissor" && computerChoice == "Paper") {
+    console.log("You win")
+  }
+  else {
+    console.log("You lose")
+  }
 }
-const getComputerChoice = () => {
-  const selection = ["Rock", "Paper", "Scissor"];
-  const computerChoice = Math.floor(Math.random() * 3) + 1;
-  return selection[computerChoice];
-};
 
-getComputerChoice();
+game(userChoice,computerChoice)
